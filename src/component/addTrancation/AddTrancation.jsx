@@ -36,7 +36,7 @@ const AddTrancation = () => {
                 setErrorData([]);
             } else {
                 console.log('duomenys')
-                setErrorData({ data: "duomenų trūkumas arba neteisingai įvesti duomenys" })
+                setErrorData({ data: "missing or incorrectly entered data" })
 
             }
         } else if (total !== 0) {
@@ -48,15 +48,15 @@ const AddTrancation = () => {
                     setErrorData([]);
                 } else {
                     console.log('duomenys')
-                    setErrorData({ data: "duomenų trūkumas arba neteisingai įvesti duomenys" })
+                    setErrorData({ data: "missing or incorrectly entered data" })
                 }
             } else {
                 console.log('nepakanka');
-                setErrorData({ data: "Apgailestaujame  Jūs neturite tiek pajamų " })
+                setErrorData({ data: "Sorry, you don't have as much income  " })
             }
         } else {
             console.log('0')
-            setErrorData({ data: "Apgailestaujame bet Jūs neturite pajamų, Arba blogai suvesti duomenys" })
+            setErrorData({ data: "Sorry, but you have no income, or your data is wrong" })
         }
 
 
@@ -83,18 +83,18 @@ const AddTrancation = () => {
                     <FormControl value={Data.amount} onChange={(e) => setData({ ...Data, amount: e.target.value })}
                         type='number'
                         min={1}
-                        placeholder="Suma"
+                        placeholder="Amount"
 
                     />
                 </InputGroup>
 
                 <Form.Select className='my-3' value={Data.type} onChange={(e) => setData({ ...Data, type: e.target.value })} >
-                    <option value=''>Pasirinkite...</option>
+                    <option value=''>Select...</option>
                     <option value='Expenses'>Expenses</option>
                     <option value='Income'>Income</option>
                 </Form.Select>
                 <Form.Select value={Data.category} onChange={(e) => setData({ ...Data, category: e.target.value })} >
-                    <option value=''>Pasirinkite...</option>
+                    <option value=''>Select...</option>
                     {selectedCategories.map(item => <option value={item.type}>{item.type}</option>)}
                 </Form.Select>
                 <Button className='my-3' onClick={craete} variant="primary">Patvirtinti</Button>
